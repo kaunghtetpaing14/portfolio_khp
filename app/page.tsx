@@ -8,11 +8,17 @@ import { StarCanvas } from "@/components/star-canvas";
 import { projects, techStack } from "@/data/portfolio";
 
 const techDetails: Record<string, { color: string; desc: string; icon: string }> = {
-  "Spring Boot": { color: "#22c55e", desc: "REST APIs & Microservices",   icon: "⚙️" },
-  Java:          { color: "#f97316", desc: "OOP & Enterprise Patterns",   icon: "☕" },
-  Neo4j:         { color: "#06b6d4", desc: "Graph DB & Cypher Queries",   icon: "🔗" },
-  MySQL:         { color: "#3b82f6", desc: "Relational DB & Optimisation",icon: "🗄️" },
-  React:         { color: "#38bdf8", desc: "SPA & Component-Driven UI",   icon: "⚛️" },
+  Python:                { color: "#facc15", desc: "Scripting, APIs & Data Processing", icon: "🐍" },
+  Java:                  { color: "#f97316", desc: "OOP & Enterprise Patterns",         icon: "☕" },
+  "Spring Boot":         { color: "#22c55e", desc: "REST APIs & Microservices",          icon: "⚙️" },
+  Neo4j:                 { color: "#06b6d4", desc: "Graph DB & Cypher Queries",          icon: "🔗" },
+  MySQL:                 { color: "#3b82f6", desc: "Relational DB & Optimisation",       icon: "🗄️" },
+  "Apache Kafka":        { color: "#a855f7", desc: "Event Streaming & Messaging",        icon: "📨" },
+  Elasticsearch:         { color: "#f59e0b", desc: "Full-Text Search & Analytics",       icon: "🔍" },
+  Redis:                 { color: "#ef4444", desc: "In-Memory Caching & Pub/Sub",        icon: "⚡" },
+  Celery:                { color: "#34d399", desc: "Distributed Task Queues",            icon: "🌿" },
+  "Change Data Capture": { color: "#818cf8", desc: "Real-Time DB Event Streaming",       icon: "🔄" },
+  Laravel:               { color: "#f43f5e", desc: "PHP Framework & Ecosystem",           icon: "🔺" },
 };
 
 export default function Home() {
@@ -229,78 +235,132 @@ export default function Home() {
         </section>
 
         {/* ════════════════════════════════════════ ABOUT ══ */}
-        <section id="about" className="py-24">
+        <section id="about" className="py-16">
           <SectionHeading
             label="About Me"
             title="Building Systems That Connect Data & People"
             description="I turn complex technical requirements into clean, scalable architecture — from graph data models to React interfaces."
           />
 
-          <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_1.2fr]">
-            {/* Left: personal card */}
-            <div className="rounded-3xl border border-slate-800/70 bg-slate-900/40 p-8 backdrop-blur">
-              <div className="relative mx-auto mb-6 h-28 w-28 overflow-hidden rounded-2xl border-2 border-indigo-400/40">
-                <Image
-                  src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400&h=400&q=80"
-                  alt="Kaung Htet Paing"
-                  fill
-                  className="object-cover"
-                  sizes="112px"
-                />
-              </div>
-              <h3 className="text-center text-xl font-bold text-white">Kaung Htet Paing</h3>
-              <p className="mt-1 text-center text-sm text-indigo-300">Full-Stack Developer</p>
-
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                {[
-                  { label: "Location",    value: "Myanmar 🇲🇲" },
-                  { label: "Experience",  value: "3+ Years"     },
-                  { label: "Specialty",   value: "Graph & APIs" },
-                  { label: "Available",   value: "Yes ✅"        },
-                ].map(({ label, value }) => (
-                  <div key={label} className="rounded-xl bg-slate-950/60 p-3 text-center">
-                    <p className="text-[10px] uppercase tracking-widest text-slate-500">{label}</p>
-                    <p className="mt-1 text-sm font-semibold text-slate-100">{value}</p>
+          <div className="mt-10 space-y-3">
+            {/* Row 1: profile card + bio side by side */}
+            <div className="grid gap-4 lg:grid-cols-[210px_1fr]">
+              {/* Left: compact profile card */}
+              <div
+                className="overflow-hidden rounded-2xl backdrop-blur"
+                style={{
+                  background: "linear-gradient(160deg, rgba(6,182,212,0.07) 0%, rgba(168,85,247,0.07) 100%)",
+                  border: "1px solid rgba(6,182,212,0.3)",
+                  boxShadow: "0 0 24px rgba(6,182,212,0.08)",
+                }}
+              >
+                <div className="h-[2px] w-full" style={{ background: "linear-gradient(90deg, #06b6d4, #a855f7)" }} />
+                <div className="flex flex-col items-center p-5">
+                  {/* Photo */}
+                  <div
+                    className="relative h-20 w-20 overflow-hidden rounded-xl"
+                    style={{ boxShadow: "0 0 0 2px #06b6d4, 0 0 14px rgba(6,182,212,0.4)" }}
+                  >
+                    <Image
+                      src="/khp_photo.jpg"
+                      alt="Kaung Htet Paing"
+                      fill
+                      className="object-cover"
+                      style={{ objectPosition: "center 20%" }}
+                      sizes="80px"
+                    />
                   </div>
-                ))}
+                  <h3 className="mt-3 text-base font-bold text-white">Kaung Htet Paing</h3>
+                  <p className="mt-0.5 text-[11px] font-semibold" style={{ color: "#06b6d4" }}>Full-Stack Developer</p>
+                  <div className="mt-3 flex items-center gap-1.5 rounded-full px-3 py-1"
+                    style={{ background: "rgba(52,211,153,0.1)", border: "1px solid rgba(52,211,153,0.3)" }}>
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400"
+                      style={{ boxShadow: "0 0 6px #34d399" }} />
+                    <span className="text-[10px] font-semibold text-emerald-300">Open to Work</span>
+                  </div>
+                  {/* Info rows */}
+                  <div className="mt-4 w-full space-y-1.5">
+                    {[
+                      { label: "Location",   value: "Myanmar 🇲🇲" },
+                      { label: "Experience", value: "3+ Years"     },
+                      { label: "Specialty",  value: "Graph & APIs" },
+                      { label: "Response",   value: "< 24 hrs ⚡"   },
+                    ].map(({ label, value }) => (
+                      <div key={label} className="flex items-center justify-between rounded-lg px-2.5 py-1.5"
+                        style={{ background: "rgba(6,182,212,0.05)", border: "1px solid rgba(6,182,212,0.1)" }}>
+                        <span className="text-[9px] font-semibold uppercase tracking-widest text-slate-500">{label}</span>
+                        <span className="text-[11px] font-semibold text-slate-100">{value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: bio */}
+              <div
+                className="rounded-2xl p-5 h-full flex flex-col justify-between"
+                style={{ background: "rgba(99,102,241,0.05)", border: "1px solid rgba(99,102,241,0.2)" }}
+              >
+                <p className="text-sm leading-6 text-slate-300">
+                  I graduated in 2024 with two bachelor's degrees —&nbsp;
+                  <span className="font-semibold text-white">BSc Computing</span> (University of Greenwich, studied at KMD Institute, Myanmar) and&nbsp;
+                  <span className="font-semibold text-white">BA Geography</span> (Dagon University, Yangon).
+                  After graduating I joined <span className="font-semibold text-white">My Day Thu Kywal</span> as a backend developer,
+                  building APIs with <span className="font-semibold text-white">Spring Boot, Java</span>, and <span className="font-semibold text-white">MySQL</span>.
+                  I later moved to the recommendation team where I work in&nbsp;
+                  <span className="font-semibold text-white">Python</span>,
+                  modelling connected data in <span className="font-semibold text-white">Neo4j</span>, and running distributed workloads with&nbsp;
+                  <span className="font-semibold text-white">Redis, Celery</span>, and <span className="font-semibold text-white">Apache Kafka</span>.
+                  I also contributed to search features using&nbsp;
+                  <span className="font-semibold text-white">Elasticsearch</span> and <span className="font-semibold text-white">Change Data Capture</span>.
+                  Alongside my full-time role I freelance with&nbsp;
+                  <span className="font-semibold text-white">Laravel</span> (Filament, Inertia, Livewire) and <span className="font-semibold text-white">React</span>.
+                </p>
+
+                {/* Divider */}
+                <div className="my-4 h-px w-full" style={{ background: "linear-gradient(90deg, rgba(99,102,241,0.3), transparent)" }} />
+
+                {/* Quick facts row */}
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { label: "🎓 BSc Computing", color: "rgba(6,182,212,0.15)",  border: "rgba(6,182,212,0.3)"  },
+                    { label: "🎓 BA Geography",  color: "rgba(168,85,247,0.15)", border: "rgba(168,85,247,0.3)" },
+                    { label: "🏢 My Day Thu Kywal", color: "rgba(34,197,94,0.12)", border: "rgba(34,197,94,0.3)" },
+                    { label: "🟡 2+ yrs backend",  color: "rgba(251,146,60,0.12)", border: "rgba(251,146,60,0.3)" },
+                    { label: "🔵 Rec. team",        color: "rgba(99,102,241,0.12)", border: "rgba(99,102,241,0.3)" },
+                    { label: "🌐 Freelancer",        color: "rgba(56,189,248,0.12)", border: "rgba(56,189,248,0.3)" },
+                  ].map(({ label, color, border }) => (
+                    <span key={label} className="rounded-full px-3 py-1 text-[11px] font-medium text-slate-200"
+                      style={{ background: color, border: `1px solid ${border}` }}>
+                      {label}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Right: bio + highlights */}
-            <div className="space-y-6">
-              <p className="text-base leading-8 text-slate-300">
-                I specialize in designing and shipping production-ready applications that 
-                span the full stack. My backend foundation is built on&nbsp;
-                <strong className="text-white">Spring Boot and Java</strong>
-                — clean service layers, RESTful APIs, and strong separation of concerns. 
-                On the data side I work with both relational databases (MySQL) and 
-                graph databases&nbsp;(<strong className="text-white">Neo4j</strong>) 
-                for relationship-rich domains. My frontend of choice is&nbsp;
-                <strong className="text-white">React</strong>, with a focus on 
-                component design and user experience.
-              </p>
-              <p className="text-base leading-8 text-slate-400">
-                I believe great software comes from understanding the problem deeply before 
-                writing a single line of code — and I bring that mindset to every project I work on.
-              </p>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {[
-                  { icon: "🏗️", title: "Backend Systems",  desc: "Scalable Spring Boot APIs with clear boundaries" },
-                  { icon: "🔗", title: "Graph Databases",   desc: "Neo4j modelling for complex, connected data"      },
-                  { icon: "⚛️", title: "React Interfaces",  desc: "Component-driven UIs with smooth UX"              },
-                  { icon: "🛢️", title: "Database Design",   desc: "Relational schemas, indexes, and optimisation"    },
-                ].map(({ icon, title, desc }) => (
-                  <div
-                    key={title}
-                    className="rounded-2xl border border-slate-800/70 bg-slate-900/40 p-5 transition hover:border-indigo-400/30"
-                  >
-                    <span className="text-2xl">{icon}</span>
-                    <p className="mt-2 text-sm font-semibold text-white">{title}</p>
-                    <p className="mt-1 text-xs text-slate-400">{desc}</p>
-                  </div>
-                ))}
-              </div>
+            {/* Row 2: 4 highlight cards in a single row */}
+            <div className="grid gap-3 grid-cols-2 lg:grid-cols-4">
+              {[
+                { icon: "🏗️", title: "Backend Systems",  desc: "Spring Boot APIs & microservices",          color: "rgba(99,102,241,0.3)",  glow: "rgba(99,102,241,0.07)"  },
+                { icon: "🔗", title: "Graph Databases",  desc: "Neo4j & Cypher for connected data",          color: "rgba(6,182,212,0.3)",   glow: "rgba(6,182,212,0.07)"   },
+                { icon: "📨", title: "Event Streaming",  desc: "Kafka, CDC & real-time pipelines",           color: "rgba(168,85,247,0.3)",  glow: "rgba(168,85,247,0.07)"  },
+                { icon: "🛢️", title: "Data Storage",    desc: "MySQL, Redis, Elasticsearch",                color: "rgba(251,146,60,0.3)",  glow: "rgba(251,146,60,0.07)"  },
+              ].map(({ icon, title, desc, color, glow }) => (
+                <div
+                  key={title}
+                  className="rounded-2xl p-4 transition duration-300 hover:-translate-y-0.5"
+                  style={{
+                    background: glow,
+                    border: `1px solid ${color}`,
+                    boxShadow: `0 0 14px ${glow}`,
+                  }}
+                >
+                  <span className="text-xl">{icon}</span>
+                  <p className="mt-2 text-sm font-bold text-white">{title}</p>
+                  <p className="mt-0.5 text-xs leading-5 text-slate-400">{desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -313,7 +373,7 @@ export default function Home() {
             description="The tools I rely on to deliver robust, performant, and maintainable software."
           />
 
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5 [&>*:last-child]:lg:col-start-3">
             {techStack.map((tech) => {
               const { color, desc, icon } = techDetails[tech] ?? { color: "#6366f1", desc: "", icon: "🔧" };
               return (
@@ -366,33 +426,82 @@ export default function Home() {
             description="I'm currently open to new roles and freelance collaborations. Drop me a message."
           />
 
-          <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_1.6fr]">
-            {/* Left info */}
-            <div className="space-y-5">
-              <div className="rounded-2xl border border-slate-800/70 bg-slate-900/40 p-6">
-                <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Email</p>
-                <a
-                  href="mailto:youremail@example.com"
-                  className="mt-2 block text-base font-medium text-indigo-300 transition hover:text-indigo-200"
+          <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_1.6fr]">
+            {/* Left: contact links */}
+            <div className="grid grid-cols-1 gap-3">
+              {[
+                {
+                  label: "Email",
+                  value: "kaunghtet2822@gmail.com",
+                  href: "mailto:kaunghtet2822@gmail.com",
+                  icon: "✉️",
+                  color: "rgba(99,102,241,0.3)",
+                  glow: "rgba(99,102,241,0.07)",
+                },
+                {
+                  label: "GitHub",
+                  value: "github.com/kaunghtetpaing14",
+                  href: "https://github.com/kaunghtetpaing14",
+                  icon: "🐙",
+                  color: "rgba(255,255,255,0.15)",
+                  glow: "rgba(255,255,255,0.04)",
+                },
+                {
+                  label: "LinkedIn",
+                  value: "kaung-htet-paing",
+                  href: "https://www.linkedin.com/in/kaung-htet-paing-b4b672343",
+                  icon: "💼",
+                  color: "rgba(14,165,233,0.3)",
+                  glow: "rgba(14,165,233,0.07)",
+                },
+                {
+                  label: "Telegram",
+                  value: "+95 977 244 9361",
+                  href: "https://t.me/+959772449361",
+                  icon: "✈️",
+                  color: "rgba(6,182,212,0.3)",
+                  glow: "rgba(6,182,212,0.07)",
+                },
+                {
+                  label: "Viber",
+                  value: "+95 977 244 9361",
+                  href: "viber://chat?number=%2B959772449361",
+                  icon: "📲",
+                  color: "rgba(124,58,237,0.3)",
+                  glow: "rgba(124,58,237,0.07)",
+                },
+                {
+                  label: "Based In",
+                  value: "Yangon, Myanmar 🇲🇲",
+                  href: null,
+                  icon: "📍",
+                  color: "rgba(52,211,153,0.25)",
+                  glow: "rgba(52,211,153,0.06)",
+                },
+              ].map(({ label, value, href, icon, color, glow }) => (
+                <div
+                  key={label}
+                  className="flex items-center gap-4 rounded-2xl px-4 py-3 transition duration-300 hover:-translate-y-0.5"
+                  style={{ background: glow, border: `1px solid ${color}` }}
                 >
-                  youremail@example.com
-                </a>
-              </div>
-              <div className="rounded-2xl border border-slate-800/70 bg-slate-900/40 p-6">
-                <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">GitHub</p>
-                <a
-                  href="https://github.com/your-username"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-2 block text-base font-medium text-indigo-300 transition hover:text-indigo-200"
-                >
-                  github.com/your-username
-                </a>
-              </div>
-              <div className="rounded-2xl border border-slate-800/70 bg-slate-900/40 p-6">
-                <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Based In</p>
-                <p className="mt-2 text-base font-medium text-slate-200">Myanmar 🇲🇲</p>
-              </div>
+                  <span className="text-xl">{icon}</span>
+                  <div className="min-w-0">
+                    <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-500">{label}</p>
+                    {href ? (
+                      <a
+                        href={href}
+                        target={href.startsWith("mailto") || href.startsWith("viber") ? undefined : "_blank"}
+                        rel="noreferrer"
+                        className="mt-0.5 block truncate text-sm font-medium text-slate-100 transition hover:text-white"
+                      >
+                        {value}
+                      </a>
+                    ) : (
+                      <p className="mt-0.5 text-sm font-medium text-slate-100">{value}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
 
             {/* Right form */}
@@ -406,7 +515,9 @@ export default function Home() {
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-3 px-5 text-sm text-slate-500 sm:flex-row sm:px-8">
           <p>© {new Date().getFullYear()} Kaung Htet Paing. All rights reserved.</p>
           <div className="flex gap-5">
-            <a href="https://github.com/your-username" target="_blank" rel="noreferrer" className="transition hover:text-indigo-300">GitHub</a>
+            <a href="https://github.com/kaunghtetpaing14" target="_blank" rel="noreferrer" className="transition hover:text-indigo-300">GitHub</a>
+            <a href="https://www.linkedin.com/in/kaung-htet-paing-b4b672343" target="_blank" rel="noreferrer" className="transition hover:text-indigo-300">LinkedIn</a>
+            <a href="mailto:kaunghtet2822@gmail.com" className="transition hover:text-indigo-300">Email</a>
           </div>
         </div>
       </footer>

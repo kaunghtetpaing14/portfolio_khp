@@ -10,11 +10,17 @@ export type Project = {
 };
 
 export const techStack = [
-  "Spring Boot",
+  "Python",
   "Java",
+  "Spring Boot",
   "Neo4j",
   "MySQL",
-  "React",
+  "Laravel",
+  "Apache Kafka",
+  "Elasticsearch",
+  "Redis",
+  "Celery",
+  "Change Data Capture",
 ] as const;
 
 export const projects: Project[] = [

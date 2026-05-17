@@ -33,27 +33,6 @@ export function ProjectShowcase({ project }: ProjectShowcaseProps) {
               </li>
             ))}
           </ul>
-
-          <div className="mt-7 flex flex-wrap gap-3">
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-5 py-2.5 text-sm font-semibold text-slate-100 transition hover:border-indigo-400/60 hover:text-indigo-200"
-            >
-              View Source
-            </a>
-            {project.demoUrl ? (
-              <a
-                href={project.demoUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-indigo-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400"
-              >
-                Launch Demo ↗
-              </a>
-            ) : null}
-          </div>
         </div>
 
         <div className="rounded-2xl border border-slate-800/60 bg-slate-950/50 p-6">

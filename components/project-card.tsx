@@ -27,27 +27,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </li>
         ))}
       </ul>
-
-      <div className="relative mt-auto flex flex-wrap gap-3 pt-6">
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center rounded-xl border border-slate-700 bg-slate-900 px-4 py-2 text-xs font-semibold text-slate-200 transition hover:border-indigo-400/50 hover:text-indigo-200"
-        >
-          View Source
-        </a>
-        {project.demoUrl ? (
-          <a
-            href={project.demoUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center rounded-xl bg-indigo-500/20 px-4 py-2 text-xs font-semibold text-indigo-300 transition hover:bg-indigo-500/35"
-          >
-            Live Demo ↗
-          </a>
-        ) : null}
-      </div>
     </article>
   );
 }

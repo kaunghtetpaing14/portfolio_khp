@@ -1,5 +1,56 @@
 import Link from "next/link";
 
+const coreTech = [
+  { name: "Python",        icon: "https://cdn.simpleicons.org/python/facc15"       },
+  { name: "Java",          icon: "https://cdn.simpleicons.org/openjdk/f97316"       },
+  { name: "Spring Boot",   icon: "https://cdn.simpleicons.org/springboot/22c55e"    },
+  { name: "Neo4j",         icon: "https://cdn.simpleicons.org/neo4j/06b6d4"         },
+  { name: "MySQL",         icon: "https://cdn.simpleicons.org/mysql/3b82f6"         },
+  { name: "Apache Kafka",  icon: "https://cdn.simpleicons.org/apachekafka/a855f7"   },
+  { name: "Redis",         icon: "https://cdn.simpleicons.org/redis/ef4444"         },
+  { name: "Elasticsearch", icon: "https://cdn.simpleicons.org/elasticsearch/f59e0b" },
+  { name: "Celery",        icon: "https://cdn.simpleicons.org/celery/34d399"        },
+  { name: "Laravel",       icon: "https://cdn.simpleicons.org/laravel/f43f5e"       },
+  { name: "Docker",        icon: "https://cdn.simpleicons.org/docker/38bdf8"        },
+  { name: "Git",           icon: "https://cdn.simpleicons.org/git/f14e32"           },
+];
+
+const careerData = [
+  {
+    company: "My Day Thu Kywal",
+    role: "Recommendation Engineer",
+    period: "2025 – Present",
+    badge: "Full-time",
+    desc: "Joined the recommendation team to model connected data in Neo4j with Cypher, stream events via Apache Kafka & Change Data Capture, and scale distributed workloads using Python, Celery, Redis, and Elasticsearch.",
+    stack: ["Python", "Neo4j", "Kafka", "Redis", "Celery", "Elasticsearch", "CDC"],
+    color: "#a855f7",
+    border: "rgba(168,85,247,0.3)",
+    bg: "rgba(168,85,247,0.05)",
+  },
+  {
+    company: "My Day Thu Kywal",
+    role: "Backend Developer",
+    period: "2024 – 2025",
+    badge: "Full-time",
+    desc: "Built and maintained production REST APIs for a social commerce platform using Spring Boot & Java. Designed MySQL schemas and shipped features across multiple release cycles.",
+    stack: ["Spring Boot", "Java", "MySQL", "REST APIs"],
+    color: "#06b6d4",
+    border: "rgba(6,182,212,0.3)",
+    bg: "rgba(6,182,212,0.05)",
+  },
+  {
+    company: "Freelance",
+    role: "Full-Stack Developer",
+    period: "2023 – Present",
+    badge: "Freelance",
+    desc: "Deliver end-to-end web applications — Laravel back-ends with Filament admin panels, Inertia & Livewire front-ends, and React SPAs — for freelance clients across various industries.",
+    stack: ["Laravel", "React", "Filament", "PostgreSQL", "Inertia"],
+    color: "#34d399",
+    border: "rgba(52,211,153,0.3)",
+    bg: "rgba(52,211,153,0.05)",
+  },
+];
+
 export default function Home() {
   return (
     <main className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8">
@@ -187,6 +238,92 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ═══ CORE TECH MARQUEE ═══ */}
+      <section className="py-12" style={{ animation: "fadeInUp 0.6s ease 0.3s both" }}>
+        <div className="mb-6 flex items-center gap-4">
+          <div className="h-px flex-1" style={{ background: "linear-gradient(to right, transparent, rgba(99,102,241,0.4))" }} />
+          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-slate-500">Core Technologies</p>
+          <div className="h-px flex-1" style={{ background: "linear-gradient(to left, transparent, rgba(99,102,241,0.4))" }} />
+        </div>
+        <div className="relative overflow-hidden">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-[#020a18] to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-[#020a18] to-transparent" />
+          <div
+            className="flex gap-3"
+            style={{ width: "max-content", animation: "marquee 30s linear infinite", willChange: "transform" }}
+          >
+            {[...coreTech, ...coreTech].map(({ name, icon }, i) => (
+              <div
+                key={i}
+                className="flex shrink-0 items-center gap-2 rounded-full border border-slate-700/50 bg-slate-900/60 px-4 py-2 backdrop-blur-sm"
+              >
+                <img src={icon} alt={name} className="h-4 w-4" />
+                <span className="text-[12px] font-semibold text-slate-300">{name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ CAREER EXPERIENCE ═══ */}
+      <section className="pb-24" style={{ animation: "fadeInUp 0.6s ease 0.5s both" }}>
+        <div className="mb-8 flex items-center gap-4">
+          <div className="h-px flex-1" style={{ background: "linear-gradient(to right, transparent, rgba(99,102,241,0.4))" }} />
+          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-slate-500">Career Journey</p>
+          <div className="h-px flex-1" style={{ background: "linear-gradient(to left, transparent, rgba(99,102,241,0.4))" }} />
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {careerData.map((item, i) => (
+            <div
+              key={item.role}
+              className="overflow-hidden rounded-2xl backdrop-blur"
+              style={{
+                background: item.bg,
+                border: `1px solid ${item.border}`,
+                boxShadow: `0 0 24px ${item.bg}`,
+                animation: `scaleIn 0.5s ease ${0.5 + i * 0.12}s both`,
+              }}
+            >
+              <div className="h-[2px] w-full" style={{ background: item.color }} />
+              <div className="p-5">
+                <div className="flex items-center justify-between">
+                  <span
+                    className="rounded-full px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-widest"
+                    style={{
+                      background: `${item.color}25`,
+                      border: `1px solid ${item.color}50`,
+                      color: item.color,
+                    }}
+                  >
+                    {item.badge}
+                  </span>
+                  <span className="text-[11px] text-slate-500">{item.period}</span>
+                </div>
+                <p
+                  className="mt-3 text-[10px] font-semibold uppercase tracking-widest"
+                  style={{ color: item.color }}
+                >
+                  {item.company}
+                </p>
+                <h3 className="mt-0.5 text-base font-bold text-white">{item.role}</h3>
+                <p className="mt-3 text-[12px] leading-5 text-slate-400">{item.desc}</p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {item.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-md px-2 py-0.5 text-[10px] font-semibold text-slate-300"
+                      style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </main>

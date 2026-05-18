@@ -15,16 +15,21 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "KHP | Full-Stack Developer",
+  title: "KHP | Backend Developer",
   description:
-    "Modern portfolio of a full-stack developer specializing in Spring Boot, Java, Neo4j, MySQL, and React.",
+    "Portfolio of Kaung Htet Paing — Backend Developer specializing in Java, Spring Boot, Python, Neo4j, Kafka, Laravel, and distributed systems.",
   keywords: [
-    "Full-Stack Developer",
-    "Spring Boot",
+    "Backend Developer",
     "Java",
+    "Spring Boot",
+    "Python",
+    "FastAPI",
     "Neo4j",
+    "Apache Kafka",
+    "Laravel",
     "MySQL",
-    "React",
+    "PostgreSQL",
+    "Recommendation Engine",
     "Portfolio",
   ],
 };

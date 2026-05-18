@@ -18,33 +18,33 @@ const coreTech = [
 const careerData = [
   {
     company: "My Day Thu Kywal",
-    role: "Recommendation Engineer",
-    period: "2025 – Present",
-    badge: "Full-time",
-    desc: "Joined the recommendation team to model connected data in Neo4j with Cypher, stream events via Apache Kafka & Change Data Capture, and scale distributed workloads using Python, Celery, Redis, and Elasticsearch.",
-    stack: ["Python", "Neo4j", "Kafka", "Redis", "Celery", "Elasticsearch", "CDC"],
-    color: "#a855f7",
-    border: "rgba(168,85,247,0.3)",
-    bg: "rgba(168,85,247,0.05)",
-  },
-  {
-    company: "My Day Thu Kywal",
     role: "Backend Developer",
-    period: "2024 – 2025",
+    period: "Jul 2024 – Sep 2024",
     badge: "Full-time",
-    desc: "Built and maintained production REST APIs for a social commerce platform using Spring Boot & Java. Designed MySQL schemas and shipped features across multiple release cycles.",
-    stack: ["Spring Boot", "Java", "MySQL", "REST APIs"],
+    desc: "Built REST APIs for a social commerce platform using Spring Boot & Java, designed MySQL schemas, and developed features with IntelliJ IDEA across short delivery cycles.",
+    stack: ["Java", "Spring Boot", "MySQL", "IntelliJ IDEA"],
     color: "#06b6d4",
     border: "rgba(6,182,212,0.3)",
     bg: "rgba(6,182,212,0.05)",
   },
   {
+    company: "My Day Thu Kywal",
+    role: "Recommendation Engineer",
+    period: "Dec 2024 – Jan 2026",
+    badge: "Full-time",
+    desc: "Moved to the recommendation team to model connected data in Neo4j, build async APIs with FastAPI, stream events via Apache Kafka & Change Data Capture, and scale workloads using Python, Celery, Redis, and Elasticsearch.",
+    stack: ["Python", "FastAPI", "Neo4j", "Kafka", "Redis", "Celery", "Elasticsearch", "CDC"],
+    color: "#a855f7",
+    border: "rgba(168,85,247,0.3)",
+    bg: "rgba(168,85,247,0.05)",
+  },
+  {
     company: "Freelance",
-    role: "Full-Stack Developer",
-    period: "2023 – Present",
+    role: "Web Developer",
+    period: "Jan 2026 – Present",
     badge: "Freelance",
-    desc: "Deliver end-to-end web applications — Laravel back-ends with Filament admin panels, Inertia & Livewire front-ends, and React SPAs — for freelance clients across various industries.",
-    stack: ["Laravel", "React", "Filament", "PostgreSQL", "Inertia"],
+    desc: "Building full-stack web applications for clients using Laravel on the back-end and React on the front-end, delivering custom features and clean user interfaces.",
+    stack: ["Laravel", "React"],
     color: "#34d399",
     border: "rgba(52,211,153,0.3)",
     bg: "rgba(52,211,153,0.05)",
@@ -275,11 +275,11 @@ export default function Home() {
           <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-slate-500">Career Journey</p>
           <div className="h-px flex-1" style={{ background: "linear-gradient(to left, transparent, rgba(99,102,241,0.4))" }} />
         </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {careerData.map((item, i) => (
             <div
               key={item.role}
-              className="overflow-hidden rounded-2xl backdrop-blur"
+              className="flex flex-col overflow-hidden rounded-2xl backdrop-blur"
               style={{
                 background: item.bg,
                 border: `1px solid ${item.border}`,
@@ -288,7 +288,7 @@ export default function Home() {
               }}
             >
               <div className="h-[2px] w-full" style={{ background: item.color }} />
-              <div className="p-5">
+              <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-center justify-between">
                   <span
                     className="rounded-full px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-widest"
@@ -309,8 +309,8 @@ export default function Home() {
                   {item.company}
                 </p>
                 <h3 className="mt-0.5 text-base font-bold text-white">{item.role}</h3>
-                <p className="mt-3 text-[12px] leading-5 text-slate-400">{item.desc}</p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
+                <p className="mt-3 flex-1 text-[13px] leading-6 text-slate-400">{item.desc}</p>
+                <div className="mt-auto flex flex-wrap gap-1.5 pt-5">
                   {item.stack.map((tech) => (
                     <span
                       key={tech}

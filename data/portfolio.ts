@@ -25,45 +25,96 @@ export const techStack = [
 
 export const projects: Project[] = [
   {
-    title: "Graph-Based Recommendation Platform",
+    title: "SaaS POS System",
     description:
-      "A recommendation engine that models relationships in a graph and serves personalized suggestions through a REST API.",
-    techStack: ["Spring Boot", "Java", "Neo4j", "React"],
-    githubUrl: "https://github.com/your-username/graph-recommendation-platform",
-    demoUrl: "https://your-demo-link.vercel.app",
+      "A multi-tenant, cloud-based point-of-sale platform for retail businesses — handling products, orders, inventory, and reporting across multiple branches from a single dashboard.",
+    techStack: ["Laravel", "PostgreSQL"],
+    githubUrl: "https://github.com/kaunghtetpaing14",
     featured: true,
-    impact: "Increased recommendation relevance with graph-based relationship scoring.",
+    impact: "Enables retail businesses to manage multiple branches under one system with isolated tenant data.",
     highlights: [
-      "Relationship traversal optimized for lower latency queries",
-      "REST API design with clean service boundaries",
-      "React UI for transparent recommendation insights",
+      "Multi-tenancy architecture with fully isolated branch data",
+      "Real-time inventory tracking and low-stock alerts",
+      "Sales reporting and daily revenue summaries per branch",
     ],
   },
   {
-    title: "Inventory Intelligence Dashboard",
+    title: "MyDay Social Commerce API",
     description:
-      "A dashboard for tracking stock movement, reorder thresholds, and operational KPIs with role-based views.",
-    techStack: ["Spring Boot", "MySQL", "React"],
-    githubUrl: "https://github.com/your-username/inventory-intelligence-dashboard",
-    impact: "Reduced stockout risk with clearer visibility into reorder actions.",
+      "Backend REST API for MyDay Thu Kywal's social commerce platform, handling user feeds, product listings, orders, and authentication for mobile and web clients.",
+    techStack: ["Java", "Spring Boot", "MySQL"],
+    githubUrl: "https://github.com/kaunghtetpaing14",
+    impact: "Served as the core API layer powering MyDay's social commerce features in production.",
     highlights: [
-      "Automated threshold alerts for low-stock products",
-      "Role-based views for operations and management",
-      "KPI widgets for daily performance monitoring",
+      "Designed relational MySQL schemas for users, products, and orders",
+      "Built and versioned REST endpoints consumed by mobile clients",
+      "Collaborated across multiple sprint cycles in a production environment",
     ],
   },
   {
-    title: "Knowledge Graph Explorer",
+    title: "Newsfeed Recommendation Engine",
     description:
-      "An interactive web app for exploring entities and relationships from a graph data model with dynamic filtering.",
-    techStack: ["Java", "Neo4j", "React"],
-    githubUrl: "https://github.com/your-username/knowledge-graph-explorer",
-    demoUrl: "https://your-graph-explorer.vercel.app",
-    impact: "Improved understanding of graph-connected domain data for stakeholders.",
+      "A graph-powered recommendation system for MyDay's social newsfeed, using Neo4j to model user-content relationships and Kafka to stream real-time interaction events.",
+    techStack: ["Python", "FastAPI", "Neo4j", "Apache Kafka", "Redis", "Celery"],
+    githubUrl: "https://github.com/kaunghtetpaing14",
+    impact: "Personalised the MyDay newsfeed by surfacing relevant content based on user interaction graphs.",
     highlights: [
-      "Interactive node and relationship filtering",
-      "Progressive loading for larger graph views",
-      "UI patterns for navigating dense connected data",
+      "Graph traversal in Neo4j with Cypher to score content relevance",
+      "Event-driven ingestion pipeline via Apache Kafka",
+      "Async task processing with Celery and Redis as broker/result store",
+    ],
+  },
+  {
+    title: "Full-Text Search Pipeline",
+    description:
+      "A real-time search indexing pipeline using Elasticsearch and Change Data Capture to keep search indexes in sync with the production database automatically.",
+    techStack: ["Elasticsearch", "Change Data Capture", "Python"],
+    githubUrl: "https://github.com/kaunghtetpaing14",
+    impact: "Delivered sub-second full-text search over MyDay's product and content catalogue.",
+    highlights: [
+      "CDC pipeline captures DB changes and pushes to Elasticsearch without manual re-indexing",
+      "Custom index mappings and analyzers for relevance tuning",
+      "Zero-downtime index updates using alias-based index swapping",
+    ],
+  },
+  {
+    title: "IrraDigital CMS",
+    description:
+      "A content management website for IrraDigital, built with Laravel and PostgreSQL, featuring an admin panel for managing pages, media, and content sections.",
+    techStack: ["Laravel", "PostgreSQL"],
+    githubUrl: "https://github.com/kaunghtetpaing14",
+    impact: "Gave the IrraDigital team full control over their website content without developer intervention.",
+    highlights: [
+      "Custom CMS with page builder and media library",
+      "Role-based admin access for content editors",
+      "PostgreSQL with optimised queries for content retrieval",
+    ],
+  },
+  {
+    title: "Rest Space Backend",
+    description:
+      "Backend API for Rest Space, a freelance project, built with Laravel and MySQL to manage workspace bookings, availability, and user reservations.",
+    techStack: ["Laravel", "MySQL"],
+    githubUrl: "https://github.com/kaunghtetpaing14",
+    impact: "Provided a clean REST API for the Rest Space booking platform used by clients.",
+    highlights: [
+      "Booking and availability management with conflict detection",
+      "RESTful API design with Laravel resource controllers",
+      "MySQL schema designed for flexible workspace slot configuration",
+    ],
+  },
+  {
+    title: "Banking System",
+    description:
+      "A university capstone project — a web-based banking system supporting account management, fund transfers, and transaction history for retail bank customers.",
+    techStack: ["PHP", "MySQL"],
+    githubUrl: "https://github.com/kaunghtetpaing14",
+    impact: "Demonstrated core banking workflows as a fully functional university project.",
+    highlights: [
+      "Account creation, deposit, withdrawal, and fund transfer flows",
+      "Transaction history with date-range filtering",
+      "Session-based authentication and basic role management",
     ],
   },
 ];
+
